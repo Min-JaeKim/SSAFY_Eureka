@@ -70,15 +70,19 @@ export default {
         case '4':
           category = '시스템 개선'
       }
-      console.log(category)
+      const qna_qtitle = this.title
+      const qna_qcontent = this.content
+      const qna_category = category
+      const member_userid = this.currentUser.member_userid
       const data = {
-        qna_qtitle: this.title,
-        qna_qcontent: this.content,
-        qna_category: category,
-        member_userid: this.currentUser.member_userid
+        qna_qtitle, qna_qcontent, qna_category, member_userid
       }
-      console.log(this.currentUser.member_userid)
-      console.log(JWTservice.getAccessToken())
+      // const data = {
+      //   'qna_qtitle': this.title,
+      //   'qna_qcontent': this.content,
+      //   'qna_category': category,
+      //   'member_userid': this.currentUser.member_userid
+      // }
       axios({
         method: 'post',
         url: `http://localhost/qna`,
@@ -91,11 +95,7 @@ export default {
       }).
         then(res =>{
           console.log(res)
-          console.log(res.config.data)
-          // console.log(res.data['products'])
-          // const products = res.data['products']
-          // const pageCount = res.data['count']
-          this.$store.dispatch('CSQnaStore/postQna', res.config.data)
+          this.$store.dispatch('CSQnaStore/postQna', res.config.data[0])
         })
         .catch(err => {
           console.log(err)

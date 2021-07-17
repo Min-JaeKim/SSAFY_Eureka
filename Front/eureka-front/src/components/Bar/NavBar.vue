@@ -43,25 +43,6 @@
                     </button>
                   </div>
                 </div>
-
-
-                <!-- <input
-                  v-model.trim="searchText"
-                  class="form-control me-2"
-                  type="text"
-                  placeholder="Search"
-                  @keyup.enter="searchItem"
-                >
-                <button
-                  class="btn btn-outline-success"
-                  type="text"
-                  placeholder="Search"
-                  @click="searchItem"
-                >
-                  Search
-                </button> -->
-
-
               </div>
             </div>
             <div class="d-flex" style="margin: -60px 0 10px 230px;">
